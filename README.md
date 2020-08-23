@@ -1,5 +1,7 @@
 # react-fullscreen-html
 
+The React component allows its children to enter the browser's fullscreen viewing mode using the Fullscreen HTML5.
+
 [![NPM](https://img.shields.io/npm/v/react-fullscreen-html.svg)](https://www.npmjs.com/package/react-fullscreen-html) [![downloads](https://img.shields.io/npm/dm/react-fullscreen-html.svg?style=flat-square)](https://www.npmjs.com/package/react-fullscreen-html) ![npm bundle size](https://img.shields.io/bundlephobia/min/react-fullscreen-html) [![Build Status](https://api.travis-ci.com/Bunlong/react-fullscreen-html.svg?branch=master)](https://travis-ci.com/Bunlong/react-fullscreen-html) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## 💖 Wrap Up
