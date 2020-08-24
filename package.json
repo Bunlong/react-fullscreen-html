@@ -1,25 +1,30 @@
 {
-  "name": "library-name",
-  "version": "1.0.1",
+  "name": "react-fullscreen-html",
+  "version": "0.0.1",
   "description": "Description",
   "author": "Bunlong <bunlong.van@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CreateNextApp/library-name-repo.git"
+    "url": "git+https://github.com/Bunlong/react-fullscreen-html-repo.git"
   },
   "bugs": {
-    "url": "https://github.com/CreateNextApp/library-name-repo.git/issues"
+    "url": "https://github.com/Bunlong/react-fullscreen-html.git/issues"
   },
   "keywords": [
-    "react"
+    "react",
+    "reactjs",
+    "fullscreen",
+    "react-fullscreen-html",
+    "full-screen",
+    "full screen"
   ],
   "homepage": "",
-  "main": "dist/library-name.js",
-  "module": "dist/library-name.es.js",
-  "jsnext:main": "dist/library-name.es.js",
-  "types": "dist/library-name.d.ts",
-  "@comment unpkg": "dist/library-name.umd.js",
+  "main": "dist/react-fullscreen-html.js",
+  "module": "dist/react-fullscreen-html.es.js",
+  "jsnext:main": "dist/react-fullscreen-html.es.js",
+  "types": "dist/react-fullscreen-html.d.ts",
+  "@comment unpkg": "dist/react-fullscreen-html.umd.js",
   "engines": {
     "node": ">=8",
     "npm": ">=5"
@@ -64,11 +69,10 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "bundlesize": [
     {
-      "path": "./dist/library-name.es.js",
+      "path": "./dist/react-fullscreen-html.es.js",
       "maxSize": "50 kB"
     }
   ],
