@@ -27,9 +27,6 @@ function App() {
       <Fullscreen handle={screen1} onChange={reportChange}>
         <div className="full-screenable-node" style={{background: "red"}}>
           First
-          <button onClick={screen2.enter}>
-            Switch
-          </button>
           <button onClick={screen1.exit}>
             Exit
           </button>
@@ -39,9 +36,6 @@ function App() {
       <Fullscreen handle={screen2} onChange={reportChange}>
         <div className="full-screenable-node" style={{background: "green"}}>
           Second
-          <button onClick={screen1.enter}>
-            Switch
-          </button>
           <button onClick={screen2.exit}>
             Exit
           </button>

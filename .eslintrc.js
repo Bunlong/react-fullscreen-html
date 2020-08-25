@@ -24,6 +24,7 @@ module.exports = {
     'react/display-name': 'warn',
     'no-console': 'error',
     'react/prop-types': 'off',
+    'react-hooks/exhaustive-deps': 'off',
     "@typescript-eslint/no-this-alias": [
       "error",
       {

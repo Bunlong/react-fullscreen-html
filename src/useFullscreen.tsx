@@ -1,5 +1,4 @@
 import {
-  useCallback,
   useState,
   useRef,
   useEffect,
@@ -17,34 +16,55 @@ export function useFullscreen(): UseFullscreenProps {
   const node = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-    const currentNode = node.current;
-    if (currentNode) {
-      const handleChange = () => {
-        setActive(true);
+    if (active) {
+      const currentNode = node.current as HTMLDivElement & {
+        requestFullscreen(): Promise<void>;
+        mozRequestFullScreen(): Promise<void>;
+        webkitRequestFullscreen(): Promise<void>;
+        msRequestFullscreen(): Promise<void>;
+      };
+      if (currentNode) {
+        if (currentNode.requestFullscreen) {
+          currentNode.requestFullscreen().catch(error => Promise.resolve(error));
+        } else if (currentNode.mozRequestFullScreen) { /* Firefox */
+          currentNode.mozRequestFullScreen().catch(error => Promise.resolve(error));
+        } else if (currentNode.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+          currentNode.webkitRequestFullscreen().catch(error => Promise.resolve(error));
+        } else if (currentNode.msRequestFullscreen) { /* IE/Edge */
+          currentNode.msRequestFullscreen().catch(error => Promise.resolve(error));
+        }
       }
-      currentNode.addEventListener('fullscreenchange', handleChange)
-      return () => currentNode.removeEventListener('fullscreenchange', handleChange)
+    } else {
+      const doc = document as Document & {
+        exitFullscreen(): Promise<void>;
+        mozCancelFullScreen(): Promise<void>;
+        webkitExitFullscreen(): Promise<void>;
+        msExitFullscreen(): Promise<void>;
+      };
+      if (doc.exitFullscreen) {
+        doc.exitFullscreen().catch(error => Promise.resolve(error));
+      } else if (doc.mozCancelFullScreen) { /* Firefox */
+        doc.mozCancelFullScreen().catch(error => Promise.resolve(error));
+      } else if (doc.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+        doc.webkitExitFullscreen().catch(error => Promise.resolve(error));
+      } else if (doc.msExitFullscreen) { /* IE/Edge */
+        doc.msExitFullscreen().catch(error => Promise.resolve(error));
+      }
     }
-    return undefined;
-  }, [])
+  }, [active])
 
-  const enter = useCallback(() => {
-    const currentNode = node.current;
-    if (currentNode) {
-      currentNode.requestFullscreen()
-    }
-  }, [])
+  const enter = () => {
+    setActive(true);
+  };
 
-  const exit = useCallback(() => {
-    if (document.exitFullscreen) {
-      document.exitFullscreen(); 
-    }
-  }, [])
+  const exit = () => {
+    setActive(false);
+  };
 
   return {
     active,
     enter,
     exit,
     node,
-  }
+  };
 }
