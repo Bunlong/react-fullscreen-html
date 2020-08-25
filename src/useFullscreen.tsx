@@ -6,10 +6,10 @@ import {
 } from 'react';
 
 export interface UseFullscreenProps {
-  active: boolean
-  enter: () => void
-  exit: () => void
-  node: React.MutableRefObject<HTMLDivElement | null>
+  active: boolean;
+  enter: () => void;
+  exit: () => void;
+  node: React.MutableRefObject<HTMLDivElement | null>;
 }
 
 export function useFullscreen(): UseFullscreenProps {

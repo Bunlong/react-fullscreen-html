@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { UseFullscreenProps } from './useFullscreen';
 
 export interface FullscreenProps {
-  handle: UseFullscreenProps
-  onChange?: (state: boolean, handle: UseFullscreenProps) => void
+  handle: UseFullscreenProps;
+  onChange?: (state: boolean, handle: UseFullscreenProps) => void;
 }
 
 export const Fullscreen: React.FC<FullscreenProps> = ({
