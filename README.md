@@ -9,8 +9,8 @@ The React component allows its children to enter the browser's fullscreen viewin
 * Compatible with both JavaScript and TypeScript
 * Compatible with both Desktop and Mobile browsers
 * Compatible with all browsers
-* No Dependency
-* Easy to Use
+* No dependency
+* Easy to use
 
 ## 🔧 Install
 
@@ -157,7 +157,7 @@ export default App;
     </tr>
     <tr>
       <td>onChange</td>
-      <td></td>
+      <td>(state: boolean, handle: FullscreenHandle) => void</td>
       <td>❌</td>
       <td>Optional callback that gets called when this screen changes state.</td>
     </tr>

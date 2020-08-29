@@ -17,7 +17,9 @@
     "fullscreen",
     "react-fullscreen-html",
     "full-screen",
-    "full screen"
+    "full screen",
+    "full screen html5",
+    "react fullscreen html"
   ],
   "homepage": "",
   "main": "dist/react-fullscreen-html.js",
