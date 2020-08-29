@@ -8,8 +8,9 @@ The React component allows its children to enter the browser's fullscreen viewin
 
 * Compatible with both JavaScript and TypeScript
 * Compatible with both Desktop and Mobile browsers
-* No dependency
-* Easy to use
+* Compatible with all browsers
+* No Dependency
+* Easy to Use
 
 ## 🔧 Install
 
@@ -55,13 +56,113 @@ export default App;
 ### 🎀 Advanced
 
 ```jsx
+import React, {useCallback} from 'react';
+import { Fullscreen, useFullscreen } from "react-fullscreen-html";
+
+function App() {
+  const screen1 = useFullscreen();
+  const screen2 = useFullscreen();
+
+  const reportChange = useCallback((state, handle) => {
+    if (handle === screen1) {
+      console.log('Screen 1 went to', state, handle);
+    }
+    if (handle === screen2) {
+      console.log('Screen 2 went to', state, handle);
+    }
+  }, [screen1, screen2]);
+  
+  return (
+    <div>
+      <button onClick={screen1.enter}>
+        First
+      </button>
+
+      <button onClick={screen2.enter}>
+        Second
+      </button>
+
+      <Fullscreen handle={screen1} onChange={reportChange}>
+        <div className="full-screenable-node" style={{background: "red"}}>
+          First
+          <button onClick={screen1.exit}>
+            Exit
+          </button>
+        </div>
+      </Fullscreen>
+
+      <Fullscreen handle={screen2} onChange={reportChange}>
+        <div className="full-screenable-node" style={{background: "green"}}>
+          Second
+          <button onClick={screen2.exit}>
+            Exit
+          </button>
+        </div>
+      </Fullscreen>
+    </div>
+  );
+};
+
+export default App;
 ```
 
 ## 📚 Documentation
 
 ### 📖 useFullscreen
 
+<table>
+  <thead>
+    <tr>
+      <th>Returned</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  <thead>
+  <tbody>
+    <tr>
+      <td>active</td>
+      <td>boolean</td>
+      <td>true if this element is currently full screen.</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>() => void</td>
+      <td>Requests this element to go full screen.</td>
+    </tr>
+    <tr>
+      <td>exit</td>
+      <td>>() => void</td>
+      <td>Requests this element to exit full screen.</td>
+    </tr>
+  </tbody>
+</table>
+
 ### 📖 Fullscreen
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Require</th>
+      <th>Description</th>
+    </tr>
+  <thead>
+  <tbody>
+    <tr>
+      <td>handle</td>
+      <td>UseFullscreenProps</td>
+      <td>✔️</td>
+      <td>Handle that helps operate the full screen state.</td>
+    </tr>
+    <tr>
+      <td>onChange</td>
+      <td></td>
+      <td>❌</td>
+      <td>Optional callback that gets called when this screen changes state.</td>
+    </tr>
+  </tbody>
+</table>
 
 ## 💖 Wrap Up
 
